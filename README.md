@@ -66,7 +66,9 @@ Finding author of branches -
 git for-each-ref --format='%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p) %(align:25,left)%(color:yellow)%(authorname)%(end) %(color:reset)%(refname:strip=3)' --sort=authordate refs/remotes
 ```
 
-Github Readme Generator - https://arturssmirnovs.github.io/github-profile-readme-generator/
+Github Readme Generator - 
+1. https://arturssmirnovs.github.io/github-profile-readme-generator/
+2. https://rahuldkjain.github.io/gh-profile-readme-generator/
 
 # Node.js & npm
 
