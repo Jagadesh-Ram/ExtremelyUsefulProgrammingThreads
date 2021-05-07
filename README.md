@@ -86,3 +86,27 @@ Npm only upgrade or downgrade on windows - https://www.npmjs.com/package/npm-win
 # Markdown Cheatsheet
 
 1 - https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet
+
+# Change the username and email address of old commit 
+
+add following code to .sh file and run with `bash filename.sh` and run `git push --force --tags origin HEAD:master` to push the changes
+
+```
+#!/bin/sh
+
+git filter-branch --env-filter '
+OLD_EMAIL="enter old email"
+CORRECT_NAME="enter correct username"
+CORRECT_EMAIL="enter corret email"
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
+```
